@@ -1,0 +1,33 @@
+<form #CrearUsuarioForm="ngForm">
+  <div class="inputGroup" style="text-align: center">
+    <label>Crear Usuario</label>
+  </div>
+  <div class="inputGroup">
+    <label for="Username">Usuario</label>
+    <input
+      type="text"
+      id="Username"
+      name="Username"
+      [(ngModel)]="username"
+      maxlength="256"
+      required
+    />
+    <span class="indicator"></span>
+  </div>
+  <div class="inputGroup">
+    <label for="password">Contraseña</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="password"
+      class="password"
+      required
+    />
+  </div>
+  <div class="inputGroup">
+    <button id="login" type="button" (click)="CrearUsuario()" [disabled]="CrearUsuarioForm.invalid">
+      Crear Usuario
+    </button>
+  </div>
+</form>

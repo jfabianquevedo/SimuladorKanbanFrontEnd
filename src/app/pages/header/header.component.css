@@ -1,0 +1,10 @@
+.example-spacer {
+    flex: 1 1 auto;
+  } 
+  .mat-toolbar {
+    background: #0047bb;
+    color: #fff; 
+      font-weight: 400;
+      letter-spacing: 0em;
+      line-height: 1.5;
+  }

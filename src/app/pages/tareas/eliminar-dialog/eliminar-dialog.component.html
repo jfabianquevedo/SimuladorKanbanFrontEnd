@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>¿ Esta Seguro de eliminar la Siguiente Tarea ?</h2>
+<mat-list>
+  <mat-list-item>IdTarea: {{ tarea.idTarea }}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>Nombre: {{ tarea.nombreTarea }}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>Descripción: {{ tarea.resumenTarea }}</mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+
+<button mat-raised-button color="primary" type="submit" (click)="Eliminar()">
+  <span>Eliminar</span>
+</button>
+<button mat-raised-button color="warn" type="submit" (click)="cerrar()">
+  <span>Cancelar</span>
+</button>

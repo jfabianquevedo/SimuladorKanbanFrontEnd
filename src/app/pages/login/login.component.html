@@ -1,0 +1,22 @@
+<form #loginForm="ngForm">
+    <div class="inputGroup" style="text-align: center">
+      <label>SIMULADOR KANBAN</label>    
+    </div>  
+    <div class="inputGroup">
+      <label for="email1">Usuario</label>
+      <input type="text" id="email" name="email" [(ngModel)]="usuario" class="email" maxlength="256" required/>
+      <span class="indicator"></span>
+    </div>
+    <div class="inputGroup">
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="password" [(ngModel)]="clave" class="password" required/>
+    </div>
+    <div class="inputGroup">
+      <button id="login" type="button" (click)="iniciarSesion()" [disabled]="loginForm.invalid" >Iniciar Sesión
+      </button>
+    </div>
+      <div class="inputGroup">
+        <button id="registar" type="button" (click)="registar()" >Registrarse
+      </button>
+    </div>
+  </form>

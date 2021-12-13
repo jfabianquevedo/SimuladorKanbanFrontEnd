@@ -1,0 +1,109 @@
+<h1>Bienvenido: {{ usuario }}</h1>
+
+<form [formGroup]="form" #frmTarea="ngForm" (ngSubmit)="registrarTarea()">
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      id="Titulo"
+      formControlName="Titulo"
+      placeholder="Titulo de la Tarea"
+      minlength="10"
+      maxlength="20"
+      required
+    />
+    <mat-error> longitud minima de 10 y máxima de 20 </mat-error>
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input
+      matInput
+      type="text"
+      formControlName="descripcion"
+      placeholder="descripcion de la tarea"
+      required
+    />
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="frmTarea.invalid"
+  >
+    Registrar
+    <mat-icon>done</mat-icon>
+  </button>
+</form>
+
+<div cdkDropListGroup>
+  <div class="container">
+    <h2>Pendiente</h2>
+    <div
+      cdkDropList
+      [cdkDropListData]="Pendiente"
+      id="pendiente"
+      class="list"
+      (cdkDropListDropped)="drop($event, 'Pendiente')"
+    >
+      <div
+        class="box"
+        *ngFor="let item of Pendiente"
+        cdkDrag
+        [cdkDragData]="item"
+      >
+        {{ item.nombreTarea }}
+        <button mat-icon-button (click)="eliminar(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <textarea *cdkDragPreview [value]="item.resumenTarea"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>En proceso</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="enProceso"
+      class="list"
+      id="proceso"
+      (cdkDropListDropped)="drop($event, 'enProceso')"
+    >
+      <div
+        class="box"
+        *ngFor="let item of enProceso"
+        cdkDrag
+        [cdkDragData]="item"
+      >
+        {{ item.nombreTarea }}
+        <button mat-icon-button (click)="eliminar(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <textarea *cdkDragPreview [value]="item.resumenTarea"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Finalizado</h2>
+    <div
+      cdkDropList
+      [cdkDropListData]="finalizado"
+      class="list"
+      id="finalizado"
+      (cdkDropListDropped)="drop($event, 'finalizado')"
+    >
+      <div
+        class="box"
+        *ngFor="let item of finalizado"
+        cdkDrag
+        [cdkDragData]="item"
+      >
+        {{ item.nombreTarea }}
+        <button mat-icon-button (click)="eliminar(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <textarea *cdkDragPreview [value]="item.resumenTarea"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
